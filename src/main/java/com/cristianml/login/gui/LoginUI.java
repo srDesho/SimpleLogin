@@ -36,11 +36,17 @@ public class LoginUI extends javax.swing.JFrame {
         jLabel3.setText("Password:");
 
         btnClean.setText("Clean");
+        btnClean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCleanActionPerformed(evt);
+            }
+        });
 
         btnLogin.setText("Login");
 
         txtMessage.setColumns(20);
         txtMessage.setRows(5);
+        txtMessage.setFocusable(false);
         jScrollPane1.setViewportView(txtMessage);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -113,6 +119,11 @@ public class LoginUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
+        txtUsername.setText("");
+        txtPass.setText("");
+    }//GEN-LAST:event_btnCleanActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
