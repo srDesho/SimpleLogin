@@ -1,9 +1,13 @@
 package com.cristianml.login.gui;
 
+import com.cristianml.login.logic.Controller;
+
 public class LoginUI extends javax.swing.JFrame {
 
+    Controller control = null;
     public LoginUI() {
         initComponents();
+        control = new Controller();
     }
 
     @SuppressWarnings("unchecked")
@@ -15,13 +19,13 @@ public class LoginUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
-        txtPass = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         btnClean = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtMessage = new javax.swing.JTextArea();
+        txtPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,6 +47,11 @@ public class LoginUI extends javax.swing.JFrame {
         });
 
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         txtMessage.setColumns(20);
         txtMessage.setRows(5);
@@ -65,8 +74,8 @@ public class LoginUI extends javax.swing.JFrame {
                                     .addComponent(jLabel3))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
-                                    .addComponent(txtUsername)))
+                                    .addComponent(txtUsername)
+                                    .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                                 .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING))))
@@ -125,6 +134,11 @@ public class LoginUI extends javax.swing.JFrame {
         txtPass.setText("");
     }//GEN-LAST:event_btnCleanActionPerformed
 
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String message = control.validateUser(txtUsername.getText(), txtPass.getText());
+        txtMessage.setText(message);
+    }//GEN-LAST:event_btnLoginActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClean;
@@ -137,7 +151,7 @@ public class LoginUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea txtMessage;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
