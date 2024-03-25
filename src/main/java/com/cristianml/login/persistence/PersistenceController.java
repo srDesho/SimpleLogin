@@ -5,6 +5,7 @@ import java.util.List;
 
 public class PersistenceController {
     UserJpaController userJpa = new UserJpaController();
+    RoleJpaController rolJpa = new RoleJpaController();
 
     public List<User> bringUserList() {
         List<User> userList = userJpa.findUserEntities();
