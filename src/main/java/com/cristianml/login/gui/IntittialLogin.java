@@ -2,10 +2,10 @@ package com.cristianml.login.gui;
 
 import com.cristianml.login.logic.Controller;
 
-public class LoginUI extends javax.swing.JFrame {
+public class IntittialLogin extends javax.swing.JFrame {
 
     Controller control = null;
-    public LoginUI() {
+    public IntittialLogin() {
         initComponents();
         control = new Controller();
     }
