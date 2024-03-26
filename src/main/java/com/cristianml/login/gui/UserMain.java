@@ -2,6 +2,9 @@ package com.cristianml.login.gui;
 
 import com.cristianml.login.logic.Controller;
 import com.cristianml.login.logic.User;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class UserMain extends javax.swing.JFrame {
 
@@ -12,6 +15,7 @@ public class UserMain extends javax.swing.JFrame {
         this.control = control;
         this.usr = usr;
         txtUserName.setText(usr.getUsername());
+        loadDatas();
     }
 
     @SuppressWarnings("unchecked")
@@ -56,6 +60,11 @@ public class UserMain extends javax.swing.JFrame {
         jScrollPane1.setViewportView(table);
 
         btnRefreshTable.setText("Refresh Table");
+        btnRefreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshTableActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,6 +115,10 @@ public class UserMain extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void btnRefreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTableActionPerformed
+        loadDatas();
+    }//GEN-LAST:event_btnRefreshTableActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnRefreshTable;
@@ -114,4 +127,29 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JTable table;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+
+    public void loadDatas() {
+        DefaultTableModel tableModel = new DefaultTableModel(){
+           // Creating the method to avoid to edit the rows
+            @Override
+            public boolean isCellEditable(int col, int row) {
+                return false;
+            }
+        };
+        // Create the columns name
+        String[] columsName = {"idUser", "userName", "pass", "role"};
+        tableModel.setColumnIdentifiers(columsName);
+        
+        // Create a user list
+        List<User> userList = control.bringUserList();
+        
+        // Iterating the userList to add to the tableModel
+        for (User user : userList) {
+            Object[] userObj = {user.getId(), user.getUsername(), user.getPass(), user.getUnRole().getRoleName()};
+            tableModel.addRow(userObj);
+        }
+        
+        // Add table model to the table
+        table.setModel(tableModel);
+    }
 }
