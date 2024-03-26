@@ -56,6 +56,11 @@ public class AdminMain extends javax.swing.JFrame {
         btnRefreshTable.setText("Refresh Table");
 
         btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         txtUserName.setEditable(false);
         txtUserName.setText("jTextField1");
@@ -122,6 +127,13 @@ public class AdminMain extends javax.swing.JFrame {
     private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
 
     }//GEN-LAST:event_txtUserNameActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        InitialLogin initial = new InitialLogin();
+        initial.setVisible(true);
+        initial.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnExitActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateUser;

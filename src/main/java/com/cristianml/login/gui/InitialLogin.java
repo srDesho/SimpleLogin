@@ -3,10 +3,10 @@ package com.cristianml.login.gui;
 import com.cristianml.login.logic.Controller;
 import com.cristianml.login.logic.User;
 
-public class IntittialLogin extends javax.swing.JFrame {
+public class InitialLogin extends javax.swing.JFrame {
 
     Controller control = null;
-    public IntittialLogin() {
+    public InitialLogin() {
         initComponents();
         control = new Controller();
     }
