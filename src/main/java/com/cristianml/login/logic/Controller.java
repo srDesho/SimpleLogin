@@ -11,8 +11,9 @@ public class Controller {
         persisControl = new PersistenceController();
     }
     
-    public String validateUser(String username, String pass) {
-        String message = "";
+    public User validateUser(String username, String pass) {
+        // String message = "";
+        User usr = null;
         // Create user list from database
         List<User> userList = persisControl.bringUserList();
         
@@ -20,17 +21,20 @@ public class Controller {
          for (User user : userList) {
             if (user.getUsername().equals(username)) {
                 if (user.getPass().equals(pass)) {
-                    message = "Validated correctly, Welcome " + user.getUsername();
-                    return message;
+                    // message = "Validated correctly, Welcome " + user.getUsername();
+                    usr = user;
+                    return usr;
                 } else {
-                    message = "Password incorrect.";
-                    return message;
+                    // message = "Password incorrect.";
+                    usr = null;
+                    return usr;
                 }
             } else {
-                message = "Username unregistered.";
+                // message = "Username unregistered.";
+                usr = null;
             }
         }
-        return message;
+        return usr;
     }
     
 }

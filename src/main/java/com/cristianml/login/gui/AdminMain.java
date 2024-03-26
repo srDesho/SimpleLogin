@@ -1,9 +1,17 @@
 package com.cristianml.login.gui;
 
-public class AdminMain extends javax.swing.JFrame {
+import com.cristianml.login.logic.Controller;
+import com.cristianml.login.logic.User;
 
-    public AdminMain() {
+public class AdminMain extends javax.swing.JFrame {
+    
+    Controller control = null;
+    User usr;
+    public AdminMain(Controller  control, User usr) {
         initComponents();
+        this.control = control;
+        this.usr = usr;
+        txtUserName.setText(usr.getUsername());
     }
 
     @SuppressWarnings("unchecked")
@@ -52,6 +60,11 @@ public class AdminMain extends javax.swing.JFrame {
         txtUserName.setEditable(false);
         txtUserName.setText("jTextField1");
         txtUserName.setBorder(null);
+        txtUserName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserNameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,6 +118,10 @@ public class AdminMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
+
+    }//GEN-LAST:event_txtUserNameActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateUser;

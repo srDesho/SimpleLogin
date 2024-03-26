@@ -1,6 +1,7 @@
 package com.cristianml.login.gui;
 
 import com.cristianml.login.logic.Controller;
+import com.cristianml.login.logic.User;
 
 public class IntittialLogin extends javax.swing.JFrame {
 
@@ -135,8 +136,24 @@ public class IntittialLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCleanActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String message = control.validateUser(txtUsername.getText(), txtPass.getText());
-        txtMessage.setText(message);
+        User usr = control.validateUser(txtUsername.getText(), txtPass.getText());
+        if (usr != null) {
+            if (usr.getUnRole().getRoleName().equals("admin")) {
+                AdminMain adminM = new AdminMain(control, usr);
+                adminM.setVisible(true);
+                adminM.setLocationRelativeTo(null);
+                this.dispose();
+            }
+            if (usr.getUnRole().getRoleName().equals("user")){
+                UserMain userM = new UserMain(control, usr);
+                userM.setVisible(true);
+                userM.setLocationRelativeTo(null);
+                this.dispose();
+            }
+        } else {
+            txtMessage.setText("User or password incorrect.");
+        }
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     
