@@ -149,9 +149,10 @@ public class AdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateUserActionPerformed
-        CreateUser createUser = new CreateUser(control);
+        CreateUser createUser = new CreateUser(control, usr);
         createUser.setVisible(true);
         createUser.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnCreateUserActionPerformed
 
     private void btnRefreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTableActionPerformed

@@ -1,14 +1,17 @@
 package com.cristianml.login.gui;
 
 import com.cristianml.login.logic.Controller;
+import com.cristianml.login.logic.User;
 
 public class CreateUser extends javax.swing.JFrame {
 
     Controller control;
+    User usr;
     
-    public CreateUser(Controller control) {
+    public CreateUser(Controller control, User usr) {
         initComponents();
         this.control = control;
+        this.usr = usr;
     }
 
     @SuppressWarnings("unchecked")
@@ -21,7 +24,7 @@ public class CreateUser extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         cmbRole = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        btnClean = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         txtUsername = new javax.swing.JTextField();
         txtPass = new javax.swing.JTextField();
@@ -42,8 +45,13 @@ public class CreateUser extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Role");
 
-        btnClean.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnClean.setText("Clean");
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         btnSave.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnSave.setText("Save");
@@ -54,7 +62,7 @@ public class CreateUser extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
@@ -98,7 +106,7 @@ public class CreateUser extends javax.swing.JFrame {
                     .addComponent(cmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClean)
+                    .addComponent(btnCancel)
                     .addComponent(btnSave))
                 .addContainerGap())
         );
@@ -116,8 +124,16 @@ public class CreateUser extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        AdminMain sAdmin = new AdminMain(control, usr);
+       sAdmin.setVisible(true);
+       sAdmin.setLocationRelativeTo(null);
+       this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClean;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cmbRole;
     private javax.swing.JLabel jLabel1;
