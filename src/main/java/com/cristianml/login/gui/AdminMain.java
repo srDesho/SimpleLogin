@@ -50,6 +50,11 @@ public class AdminMain extends javax.swing.JFrame {
         btnEditUser.setText("Edit User");
 
         btnCreateUser.setText("Create New User");
+        btnCreateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateUserActionPerformed(evt);
+            }
+        });
 
         btnDeleteUser.setText("Delete User");
 
@@ -134,6 +139,12 @@ public class AdminMain extends javax.swing.JFrame {
         initial.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateUserActionPerformed
+        CreateUser createUser = new CreateUser(control);
+        createUser.setVisible(true);
+        createUser.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnCreateUserActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateUser;
