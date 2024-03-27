@@ -138,7 +138,7 @@ public class InitialLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         User usr = control.validateUser(txtUsername.getText(), txtPass.getText());
         if (usr != null) {
-            if (usr.getUnRole().getRoleName().equals("admin")) {
+            if (usr.getUnRole().getRoleName().equals("administrator")) {
                 AdminMain adminM = new AdminMain(control, usr);
                 adminM.setVisible(true);
                 adminM.setLocationRelativeTo(null);

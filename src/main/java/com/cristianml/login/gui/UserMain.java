@@ -137,18 +137,19 @@ public class UserMain extends javax.swing.JFrame {
             }
         };
         // Create the columns name
-        String[] columsName = {"idUser", "userName", "pass", "role"};
+        String[] columsName = {"idUser", "userName", "role"};
         tableModel.setColumnIdentifiers(columsName);
         
         // Create a user list
         List<User> userList = control.bringUserList();
         
-        // Iterating the userList to add to the tableModel
-        for (User user : userList) {
-            Object[] userObj = {user.getId(), user.getUsername(), user.getPass(), user.getUnRole().getRoleName()};
-            tableModel.addRow(userObj);
+        if (userList != null) {
+            // Iterating the userList to add to the tableModel
+            for (User user : userList) {
+                Object[] userObj = {user.getId(), user.getUsername(), user.getUnRole().getRoleName()};
+                tableModel.addRow(userObj);
+            }
         }
-        
         // Add table model to the table
         table.setModel(tableModel);
     }
