@@ -40,6 +40,8 @@ public class InitialLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Password:");
 
+        txtUsername.setText("admin");
+
         btnClean.setText("Clean");
         btnClean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +60,8 @@ public class InitialLogin extends javax.swing.JFrame {
         txtMessage.setRows(5);
         txtMessage.setFocusable(false);
         jScrollPane1.setViewportView(txtMessage);
+
+        txtPass.setText("123");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -138,7 +142,7 @@ public class InitialLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         User usr = control.validateUser(txtUsername.getText(), txtPass.getText());
         if (usr != null) {
-            if (usr.getUnRole().getRoleName().equals("administrator")) {
+            if (usr.getUnRole().getRoleName().equals("admin")) {
                 AdminMain adminM = new AdminMain(control, usr);
                 adminM.setVisible(true);
                 adminM.setLocationRelativeTo(null);

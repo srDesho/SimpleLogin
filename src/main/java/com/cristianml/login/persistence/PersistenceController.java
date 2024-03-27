@@ -1,5 +1,6 @@
 package com.cristianml.login.persistence;
 
+import com.cristianml.login.logic.Role;
 import com.cristianml.login.logic.User;
 import java.util.List;
 
@@ -10,6 +11,10 @@ public class PersistenceController {
     public List<User> bringUserList() {
         List<User> userList = userJpa.findUserEntities();
         return userList;
+    }
+
+    public List<Role> bringRoleList() {
+        return rolJpa.findRoleEntities();
     }
     
 }

@@ -40,5 +40,9 @@ public class Controller {
     public List<User> bringUserList() {
         return persisControl.bringUserList();
     }
+
+    public List<Role> bringRoleList() {
+        return persisControl.bringRoleList();
+    }
     
 }

@@ -1,7 +1,9 @@
 package com.cristianml.login.gui;
 
 import com.cristianml.login.logic.Controller;
+import com.cristianml.login.logic.Role;
 import com.cristianml.login.logic.User;
+import java.util.List;
 
 public class CreateUser extends javax.swing.JFrame {
 
@@ -30,6 +32,11 @@ public class CreateUser extends javax.swing.JFrame {
         txtPass = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setText("Create User");
@@ -131,6 +138,16 @@ public class CreateUser extends javax.swing.JFrame {
        sAdmin.setLocationRelativeTo(null);
        this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // Load roles
+        List<Role> roleList = control.bringRoleList();
+        if (roleList != null) {
+            for (Role role : roleList) {
+                cmbRole.addItem(role.getRoleName());
+            }
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
