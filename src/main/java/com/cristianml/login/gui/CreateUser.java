@@ -62,6 +62,11 @@ public class CreateUser extends javax.swing.JFrame {
 
         btnSave.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,10 +138,7 @@ public class CreateUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        AdminMain sAdmin = new AdminMain(control, usr);
-       sAdmin.setVisible(true);
-       sAdmin.setLocationRelativeTo(null);
-       this.dispose();
+        redirectToAdminMain();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -149,6 +151,20 @@ public class CreateUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        control.createUser(txtUsername.getText(), txtPass.getText(), (String) cmbRole.getSelectedItem());
+        redirectToAdminMain();
+        this.dispose();
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    // redirect to AdminMain UI
+    public void redirectToAdminMain() {
+       AdminMain sAdmin = new AdminMain(control, usr);
+       sAdmin.setVisible(true);
+       sAdmin.setLocationRelativeTo(null);
+       this.dispose();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;

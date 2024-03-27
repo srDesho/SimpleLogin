@@ -16,5 +16,9 @@ public class PersistenceController {
     public List<Role> bringRoleList() {
         return rolJpa.findRoleEntities();
     }
+
+    public void createUser(User usr) {
+        userJpa.create(usr);
+    }
     
 }
