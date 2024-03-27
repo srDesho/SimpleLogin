@@ -2,6 +2,8 @@ package com.cristianml.login.gui;
 
 import com.cristianml.login.logic.Controller;
 import com.cristianml.login.logic.User;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class AdminMain extends javax.swing.JFrame {
     
@@ -11,6 +13,7 @@ public class AdminMain extends javax.swing.JFrame {
         initComponents();
         this.control = control;
         this.usr = usr;
+        loadDatas();
         txtUserName.setText(usr.getUsername());
     }
 
@@ -59,6 +62,11 @@ public class AdminMain extends javax.swing.JFrame {
         btnDeleteUser.setText("Delete User");
 
         btnRefreshTable.setText("Refresh Table");
+        btnRefreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshTableActionPerformed(evt);
+            }
+        });
 
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +154,36 @@ public class AdminMain extends javax.swing.JFrame {
         createUser.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCreateUserActionPerformed
 
+    private void btnRefreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTableActionPerformed
+        loadDatas();
+    }//GEN-LAST:event_btnRefreshTableActionPerformed
+
+    public void loadDatas() {
+        DefaultTableModel tableModel = new DefaultTableModel(){
+           // Creating the method to avoid to edit the rows
+            @Override
+            public boolean isCellEditable(int col, int row) {
+                return false;
+            }
+        };
+        // Create the columns name
+        String[] columsName = {"idUser", "userName", "role"};
+        tableModel.setColumnIdentifiers(columsName);
+        
+        // Create a user list
+        List<User> userList = control.bringUserList();
+        
+        if (userList != null) {
+            // Iterating the userList to add to the tableModel
+            for (User user : userList) {
+                Object[] userObj = {user.getId(), user.getUsername(), user.getUnRole().getRoleName()};
+                tableModel.addRow(userObj);
+            }
+        }
+        // Add table model to the table
+        table.setModel(tableModel);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateUser;
     private javax.swing.JButton btnDeleteUser;

@@ -119,15 +119,6 @@ public class UserMain extends javax.swing.JFrame {
         loadDatas();
     }//GEN-LAST:event_btnRefreshTableActionPerformed
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnRefreshTable;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable table;
-    private javax.swing.JTextField txtUserName;
-    // End of variables declaration//GEN-END:variables
-
     public void loadDatas() {
         DefaultTableModel tableModel = new DefaultTableModel(){
            // Creating the method to avoid to edit the rows
@@ -153,4 +144,14 @@ public class UserMain extends javax.swing.JFrame {
         // Add table model to the table
         table.setModel(tableModel);
     }
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnRefreshTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable table;
+    private javax.swing.JTextField txtUserName;
+    // End of variables declaration//GEN-END:variables
+
 }
