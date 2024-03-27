@@ -50,8 +50,10 @@ public class AdminMain extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(table);
 
+        btnEditUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnEditUser.setText("Edit User");
 
+        btnCreateUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnCreateUser.setText("Create New User");
         btnCreateUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,8 +61,10 @@ public class AdminMain extends javax.swing.JFrame {
             }
         });
 
+        btnDeleteUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnDeleteUser.setText("Delete User");
 
+        btnRefreshTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnRefreshTable.setText("Refresh Table");
         btnRefreshTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +72,7 @@ public class AdminMain extends javax.swing.JFrame {
             }
         });
 
+        btnExit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
