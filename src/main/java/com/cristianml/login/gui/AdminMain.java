@@ -3,6 +3,8 @@ package com.cristianml.login.gui;
 import com.cristianml.login.logic.Controller;
 import com.cristianml.login.logic.User;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class AdminMain extends javax.swing.JFrame {
@@ -52,6 +54,11 @@ public class AdminMain extends javax.swing.JFrame {
 
         btnEditUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnEditUser.setText("Edit User");
+        btnEditUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditUserActionPerformed(evt);
+            }
+        });
 
         btnCreateUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnCreateUser.setText("Create New User");
@@ -164,6 +171,10 @@ public class AdminMain extends javax.swing.JFrame {
         loadDatas();
     }//GEN-LAST:event_btnRefreshTableActionPerformed
 
+    private void btnEditUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditUserActionPerformed
+        
+    }//GEN-LAST:event_btnEditUserActionPerformed
+
     public void loadDatas() {
         DefaultTableModel tableModel = new DefaultTableModel(){
            // Creating the method to avoid to edit the rows
@@ -201,4 +212,6 @@ public class AdminMain extends javax.swing.JFrame {
     private javax.swing.JTable table;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+
+    
 }
