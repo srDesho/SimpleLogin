@@ -73,7 +73,7 @@ public class Controller {
     }
 
     public User bringUser(int idUser) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return persisControl.bringUser(idUser);
     }
 
     private int bringLastIdUser() {
@@ -81,4 +81,21 @@ public class Controller {
         User lastUser = userList.get((userList.size()-1));
         return lastUser.getId();
     }
+
+    public void editUser(User usr, String username, String pass, String roleType) {
+        // We get userList
+        usr.setUsername(username);
+        usr.setPass(pass);
+        
+        // Add role
+        Role role = bringRole(roleType);
+        if(role != null) {
+            usr.setUnRole(role);
+        }
+        
+        // Add to the persistence
+        persisControl.editUser(usr);
+    }
+
+    
 }

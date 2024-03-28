@@ -172,7 +172,24 @@ public class AdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRefreshTableActionPerformed
 
     private void btnEditUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditUserActionPerformed
-        
+        if (table.getRowCount() > 0) {
+            if (table.getSelectedRow()!= -1) {
+                // We get the id of the user
+                int idUser = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
+                // We get the user
+                User user = control.bringUser(idUser);
+                
+                // We get the datas of the user
+                EditUser sEditUser = new EditUser(control, user);
+                sEditUser.setVisible(true);
+                sEditUser.setLocationRelativeTo(null);
+                this.dispose();
+            } else {
+                showMessage("None row selected.", "error", "Error row selected.");
+            }
+        } else {
+            showMessage("Table is empty.", "error", "Table Empty.");
+        }
     }//GEN-LAST:event_btnEditUserActionPerformed
 
     public void loadDatas() {

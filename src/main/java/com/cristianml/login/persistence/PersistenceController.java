@@ -3,6 +3,8 @@ package com.cristianml.login.persistence;
 import com.cristianml.login.logic.Role;
 import com.cristianml.login.logic.User;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PersistenceController {
     UserJpaController userJpa = new UserJpaController();
@@ -20,5 +22,18 @@ public class PersistenceController {
     public void createUser(User usr) {
         userJpa.create(usr);
     }
+
+    public User bringUser(int idUser) {
+        return userJpa.findUser(idUser);
+    }
+
+    public void editUser(User usr) {
+        try {
+            userJpa.edit(usr);
+        } catch (Exception ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     
 }
