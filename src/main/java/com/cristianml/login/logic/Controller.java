@@ -97,5 +97,9 @@ public class Controller {
         persisControl.editUser(usr);
     }
 
+    public void deleteUser(int idUser) {
+        persisControl.deleteUser(idUser);
+    }
+
     
 }
