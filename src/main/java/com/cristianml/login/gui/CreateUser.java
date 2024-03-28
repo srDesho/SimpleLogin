@@ -4,6 +4,8 @@ import com.cristianml.login.logic.Controller;
 import com.cristianml.login.logic.Role;
 import com.cristianml.login.logic.User;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 public class CreateUser extends javax.swing.JFrame {
 
@@ -155,6 +157,7 @@ public class CreateUser extends javax.swing.JFrame {
         control.createUser(txtUsername.getText(), txtPass.getText(), (String) cmbRole.getSelectedItem());
         redirectToAdminMain();
         this.dispose();
+        showMessage("Added successfully", "info", "User added.");
     }//GEN-LAST:event_btnSaveActionPerformed
 
     // redirect to AdminMain UI
@@ -163,6 +166,19 @@ public class CreateUser extends javax.swing.JFrame {
        sAdmin.setVisible(true);
        sAdmin.setLocationRelativeTo(null);
        this.dispose();
+    }
+    
+    private void showMessage(String message, String type, String title) {
+        JOptionPane optionPane = new JOptionPane(message);
+        if(type.equals("info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        }
+        if(type.equals("error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(title);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

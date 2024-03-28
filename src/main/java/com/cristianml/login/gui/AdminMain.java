@@ -201,6 +201,20 @@ public class AdminMain extends javax.swing.JFrame {
         table.setModel(tableModel);
     }
     
+    // Message to show by screen
+    private void showMessage(String message, String type, String title) {
+        JOptionPane optionPane = new JOptionPane(message);
+        if(type.equals("info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        }
+        if(type.equals("error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(title);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateUser;
     private javax.swing.JButton btnDeleteUser;
