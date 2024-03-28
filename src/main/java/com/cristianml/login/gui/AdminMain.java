@@ -70,6 +70,11 @@ public class AdminMain extends javax.swing.JFrame {
 
         btnDeleteUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnDeleteUser.setText("Delete User");
+        btnDeleteUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteUserActionPerformed(evt);
+            }
+        });
 
         btnRefreshTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnRefreshTable.setText("Refresh Table");
@@ -177,10 +182,10 @@ public class AdminMain extends javax.swing.JFrame {
                 // We get the id of the user
                 int idUser = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
                 // We get the user
-                User user = control.bringUser(idUser);
+                usr = control.bringUser(idUser);
                 
                 // We get the datas of the user
-                EditUser sEditUser = new EditUser(control, user);
+                EditUser sEditUser = new EditUser(control, usr);
                 sEditUser.setVisible(true);
                 sEditUser.setLocationRelativeTo(null);
                 this.dispose();
@@ -191,6 +196,10 @@ public class AdminMain extends javax.swing.JFrame {
             showMessage("Table is empty.", "error", "Table Empty.");
         }
     }//GEN-LAST:event_btnEditUserActionPerformed
+
+    private void btnDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteUserActionPerformed
+        
+    }//GEN-LAST:event_btnDeleteUserActionPerformed
 
     public void loadDatas() {
         DefaultTableModel tableModel = new DefaultTableModel(){
