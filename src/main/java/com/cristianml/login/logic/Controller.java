@@ -50,7 +50,9 @@ public class Controller {
         User usr = new User();
         usr.setUsername(username);
         usr.setPass(pass);
-        
+        // Get the last user id to the table user and set new id
+        int idUser = bringLastIdUser()+1;
+        usr.setId(idUser);
         // get the rol
         Role role = bringRole(strRole);
         if(role != null){
@@ -72,5 +74,11 @@ public class Controller {
 
     public User bringUser(int idUser) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private int bringLastIdUser() {
+        List<User> userList = bringUserList();
+        User lastUser = userList.get((userList.size()-1));
+        return lastUser.getId();
     }
 }
